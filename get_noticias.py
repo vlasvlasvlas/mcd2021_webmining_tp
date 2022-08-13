@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import date 
+from datetime import date, datetime
 import sys, os
 import json
 
@@ -124,3 +124,5 @@ filejson = str(date.today())+"_ambito.json"
 
 with open('data_noticias/'+filejson, 'w') as f:
     json.dump(diario_ambito, f, ensure_ascii=False, indent=4)        
+
+print("executed:"+datetime.now().isoformat())

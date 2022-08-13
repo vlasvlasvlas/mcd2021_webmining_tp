@@ -3,7 +3,7 @@ name: scraper-noticias
 
 on:
   schedule:
-    - cron: "25 17 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
+    - cron: "36 17 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
 
   # test
   workflow_dispatch:
@@ -36,14 +36,14 @@ jobs:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
-        run: python get_noticias.py
+        run: python get_noticias.py >> log
           
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m --allow-empty "update data"
+          git commit -m "update data" -a
           
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
