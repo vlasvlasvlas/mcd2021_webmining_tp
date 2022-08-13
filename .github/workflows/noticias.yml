@@ -3,7 +3,7 @@ name: scraper-noticias
 
 on:
   schedule:
-    - cron: "45 17 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
+    - cron: "55 17 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
 
   # test
   #workflow_dispatch:
