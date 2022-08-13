@@ -49,14 +49,14 @@ response = requests.get(url, headers=headers)
 page = BeautifulSoup(response.text, 'html.parser')
 
 # extract
-page_titulos = page.find_all('div', {"class": "article-title "})
+page_titulos = page.find_all('div', {"class": "article-title"})
 
 # dict 
 noticias_pagina12 = []
 
 # append
 for a in page_titulos:
-  noticia = a.get_text().replace('"','').replace('“','').replace('”','').replace("'",'')
+  noticia = a.get_text()
   noticias_pagina12.append(noticia)
 
 # json 
@@ -65,6 +65,7 @@ diario_pagina12 = {
     'origen':url,
     'noticias':noticias_pagina12
 }
+
 
 
 
@@ -108,21 +109,21 @@ if not os.path.exists('data_noticias'):
 # clarin
 filejson = str(date.today())+"_clarin.json"
 
-with open('data_noticias/'+filejson, 'w') as f:
+with open('data_noticias/'+filejson, 'w',encoding='utf8') as f:
     json.dump(diario_clarin, f, ensure_ascii=False, indent=4)
 
 
 # clarin
 filejson = str(date.today())+"_pagina12.json"
 
-with open('data_noticias/'+filejson, 'w') as f:
+with open('data_noticias/'+filejson, 'w',encoding='utf8') as f:
     json.dump(diario_pagina12, f, ensure_ascii=False, indent=4)    
 
 
 # clarin
 filejson = str(date.today())+"_ambito.json"
 
-with open('data_noticias/'+filejson, 'w') as f:
+with open('data_noticias/'+filejson, 'w',encoding='utf8') as f:
     json.dump(diario_ambito, f, ensure_ascii=False, indent=4)        
 
 print("executed:"+datetime.now().isoformat())
