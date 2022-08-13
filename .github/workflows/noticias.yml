@@ -6,12 +6,12 @@ on:
     - cron: "36 17 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
 
   # test
-  workflow_dispatch:
-    branches: [ main ]
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #workflow_dispatch:
+  #  branches: [ main ]
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
 
 jobs:
   build:
