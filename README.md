@@ -2,3 +2,7 @@
 
 # mcd2021_webmining_tp
 github actions python script project, web scrap
+
+Ejecuta un github actions que:
+
+* visita medios, extrae titulares y los guarda junto al nombre del medio y la fecha de consulta
