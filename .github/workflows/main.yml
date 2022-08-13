@@ -1,8 +1,8 @@
-name: scraper-san-juan-gobierno
+name: scraper-noticias
 
 on:
   schedule:
-    - cron: '0 12 * * *' # runs at 12:00 UTC everyday
+    - cron: '0 18 * * *' # runs at 18:00 UTC everyday // 15pm ARG
 
 jobs:
   build:
