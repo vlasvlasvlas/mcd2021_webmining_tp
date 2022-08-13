@@ -32,7 +32,7 @@ diario_ambito = {
     'origen':url,
     'noticias':noticias_ambito
 }
-print(diario_ambito)
+
 
 
 
@@ -65,7 +65,7 @@ diario_pagina12 = {
     'origen':url,
     'noticias':noticias_pagina12
 }
-print(diario_pagina12)
+
 
 
 ## clarin
@@ -100,17 +100,6 @@ diario_clarin = {
     'noticias':noticias_clarin
 }
 
-print(diario_clarin)
-
-
-# clarin
-print(diario_clarin)
-
-# pagina12
-print(diario_pagina12)
-
-# ambito
-print(diario_ambito)
 
 
 if not os.path.exists('data_noticias'):
