@@ -5,4 +5,4 @@ github actions python script project, web scrap
 
 Ejecuta un github actions que:
 
-* visita medios, extrae titulares y los guarda junto al nombre del medio y la fecha de consulta
+* visita medios, extrae titulares y los guarda diariamente con github actions en un archivo json junto al nombre del medio y la fecha de consulta
