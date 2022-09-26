@@ -6,6 +6,9 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+# must check frozen flask
+# https://pythonhosted.org/Frozen-Flask/
+
 df = pd.read_csv("analisis_30dias.csv")
 
 df = df.sort_values(["fecha", "fuente_nombre", "puntaje"], ascending=[True, True, True])
