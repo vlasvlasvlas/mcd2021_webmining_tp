@@ -71,8 +71,9 @@ for filename in os.listdir(directory):
 print("dates:", len(dates))
 
 # busco la fecha más reciente
+cantdias = 30
 date_to = max(dates, key=lambda d: datetime.strptime(d, "%Y-%m-%d"))
-date_from = datetime.today() - timedelta(days=7)
+date_from = datetime.today() - timedelta(days=cantdias)
 date_from = date_from.date()
 
 # última semana
