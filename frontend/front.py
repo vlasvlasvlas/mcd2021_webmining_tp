@@ -121,7 +121,6 @@ fig1.update_layout(bargap=0, bargroupgap=0)
 
 fig1.update_layout(showlegend=False)
 
-
 fig1.update_layout(
     title="Puntaje agrupado de sentimiento de noticias por fuente",
     xaxis_title="Fecha",
@@ -147,7 +146,7 @@ fig1.add_trace(
         line=dict(color="dodgerblue", shape="spline", smoothing=1),
         marker=dict(
             size=10, color="mediumblue", colorscale="mint"
-        ),  # stocks_close["^MERV"]
+        ),  
     ),
     secondary_y=True,
 )
@@ -156,18 +155,3 @@ fig1.update_layout(yaxis2=dict(title="Precio MERVAL", side="right"))
 fig1.update_layout(
     height=800, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)"
 )
-
-"""
-
-fig1.add_trace(px.line(
-    x=test['count'],
-    y=test['pur_grp'],
-    orientation='h',
-    name='count',
-),secondary_y=False)
-
-# fecha,fuente_nombre,fuente_url,noticia_es,noticia_en,puntaje
-# Plot the scatterplot using Plotly. We ploy y vs x (#Confirmed vs Date)
-fig = px.scatter(df, x='fecha', y='puntaje', color='fuente_nombre', color_discrete_sequence=['red','yellow','green'])
-fig.update_traces(mode='markers+lines')
-"""
