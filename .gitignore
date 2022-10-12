@@ -2,3 +2,4 @@ venv
 *.csv
 data_noticias/
 *.log
+**/__pycache__/ 
