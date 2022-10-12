@@ -3,3 +3,4 @@ venv
 data_noticias/
 *.log
 **/__pycache__/ 
+frontend/__pycache__/
