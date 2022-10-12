@@ -14,7 +14,7 @@ from plotly.subplots import make_subplots
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # dataframe con analisis 30 dias
-filecsv = "..\\analisis_30dias.csv"
+filecsv = "..//analisis_30dias.csv"
 
 # dataframe
 df = pd.read_csv(os.path.join(ROOT_DIR, filecsv))
