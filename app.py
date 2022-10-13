@@ -32,11 +32,10 @@ app.layout = html.Div(
 
             """
         ),
-        dcc.Graph(id="chart1_noticias", figure=fig1),
-        # dcc.Graph(id="chart2_stocks", figure=fig2),
+        dcc.Graph(id="chart1_noticias", figure=fig1)
     ]
 )
 
 if __name__ == '__main__':
     from os import environ
-    app.run(host='0.0.0.0', debug=False, port=environ.get("PORT", 5000))
+    app.run(host='localhost', debug=True, port=environ.get("PORT", 5000))

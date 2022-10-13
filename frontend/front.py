@@ -75,3 +75,53 @@ fig1.update_layout(yaxis2=dict(title="Índice MERVAL", side="right"))
 fig1.update_layout(
     height=800, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)"
 )
+
+
+# --buttons
+
+buttons = []
+
+# button with one option for each 'special'
+# para cada fuente (pagina,ambito,clarin).unique()
+for s in dfmedia["fuente_nombre"].unique():
+    
+    buttons.append(dict(method='restyle',
+                        label=s,
+                        visible=True,
+                        args=[{
+                               'x':[dfmedia[dfmedia['fuente_nombre']==s]['fecha'].values],
+                               'y':[dfmedia[dfmedia['fuente_nombre']==s]['puntaje'].values],
+                               'marker':dict(color=dfmedia[dfmedia['fuente_nombre']==s]['puntaje'].values, colorscale="rdylgn"),
+                               'marker_line_width':0, 
+                               'selector':dict(type="bar"),
+                               'secondary_y':'False'
+                               
+                               }, ],
+                        )
+                  )
+
+# add first option for all 'special'
+buttons.insert(0, dict(method='restyle',
+                 label='Todos',
+                 visible=True,
+                 args=[{'x':[dfmedia["fecha"].values],
+                        'y':[dfmedia["puntaje"].values],
+                        'marker':dict(color=dfmedia["puntaje"].values, colorscale="rdylgn"),
+                        'marker_line_width':0, 
+                        'selector':dict(type="bar"),
+                        'secondary_y':'False'                                      
+                        
+                        }, ],))
+
+
+# some adjustments to the updatemenus
+updatemenu = []
+your_menu = dict()
+updatemenu.append(your_menu)
+
+updatemenu[0]['buttons'] = buttons
+updatemenu[0]['direction'] = 'down'
+updatemenu[0]['showactive'] = True
+
+# add dropdown menus to the figure
+#fig1.update_layout(showlegend=False, updatemenus=updatemenu)
