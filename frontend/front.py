@@ -116,7 +116,7 @@ fig1.update_layout(showlegend=False)
 fig1.update_layout(
     title="Puntaje agrupado de sentimiento de noticias por fuente",
     xaxis_title="Fecha",
-    yaxis_title="Puntaje acumulado",
+    yaxis_title="Sentiment score apilado",
 )
 
 fig1.update_traces(
