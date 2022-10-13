@@ -20,79 +20,10 @@ df = pd.read_csv(os.path.join(ROOT_DIR, data_news))
 df = df.sort_values(["fecha", "puntaje"], ascending=[True, True])
 df["fecha"]
 
-# df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
-# df = df.rename_axis("fecha").query("fecha.dt.dayofweek < 5")
-
 fechamin = df.fecha.min()
 fechamax = df.fecha.max()
-print(fechamin)
-print(fechamax)
-
-"""
-    color=df["puntaje"] > 0.25,
-    color_discrete_map={True: "green", False: "red"}
-
-"""
-
 
 fig1 = make_subplots(specs=[[{"secondary_y": True}]])
-"""
-fig1 = px.bar(
-    df,
-    x=df['fecha'],
-    y=df['puntaje'],
-    #facet_col=df['fuente_nombre'],
-    color=df['puntaje'],
-    color_continuous_scale=["red", "yellow", "green"],
-)
-
-
-fig1.update_traces(marker_line_width=0, selector=dict(type="bar"),secondary_y=False)
-
-fig1.update_layout(bargap=0, bargroupgap=0)
-
-fig1.update_layout(showlegend=False)
-# fig.update_layout(yaxis_range=[-10,10])
-
-fig1.update_layout(
-    title="Puntaje agrupado de sentimiento de noticias por fuente",
-    xaxis_title="Fecha",
-    yaxis_title="Puntaje acumulado"
-    # legend_title="Legend Title",
-)
-
-fig1.update_traces(
-    hovertemplate='Fecha: '+df['fecha']+'<br>Fuente: '+df['fuente_nombre']+'<br>Noticia: '+df['noticia_es']
-)
-"""
-## stocks
-
-
-fechamin = fechamin  # np.datetime64('2022-09-22')  #
-fechamax = fechamax
-
-"""
-df2 = px.data.stocks(indexed=True)-1
-fig2 = px.area(df2, facet_col="company", facet_col_wrap=2)
-"""
-
-
-
-# fig2 = px.line(data_stocks,x=data_stocks['Date'],y=data_stocks['^MERV'])
-
-
-"""
-fig1 = px.bar(
-    df,
-    x=df['fecha'],
-    y=df['puntaje'],
-    #facet_col=df['fuente_nombre'],
-    color=df['puntaje'],
-    color_continuous_scale=["red", "yellow", "green"],
-    
-)
-"""
-
 fig1.add_trace(
     go.Bar(
         x=df["fecha"],
@@ -109,17 +40,13 @@ fig1.add_trace(
 )
 
 fig1.update_traces(marker_line_width=0, selector=dict(type="bar"))
-
 fig1.update_layout(bargap=0, bargroupgap=0)
-
 fig1.update_layout(showlegend=False)
-
 fig1.update_layout(
     title="Puntaje agrupado de sentimiento de noticias por fuente",
     xaxis_title="Fecha",
     yaxis_title="Sentiment score apilado",
 )
-
 fig1.update_traces(
     hovertemplate="Fecha: "
     + df["fecha"]
@@ -128,7 +55,6 @@ fig1.update_traces(
     + "<br>Noticia: "
     + df["noticia_es"]
 )
-
 
 fig1.add_trace(
     go.Scatter(
@@ -143,6 +69,7 @@ fig1.add_trace(
     ),
     secondary_y=True,
 )
+
 fig1.update_layout(yaxis2=dict(title="Índice MERVAL", side="right"))
 
 fig1.update_layout(
