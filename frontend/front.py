@@ -5,11 +5,9 @@ import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
 import numpy as np
-import pandas_datareader.data as web
 import datetime as dt
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -77,13 +75,7 @@ df2 = px.data.stocks(indexed=True)-1
 fig2 = px.area(df2, facet_col="company", facet_col_wrap=2)
 """
 
-stocks_close = pd.DataFrame(
-    web.DataReader(["^MERV"], "yahoo", fechamin, fechamax)["Close"]
-)
-stocks_close.reset_index(inplace=True)
-
-print(stocks_close.head(1))
-print(stocks_close.shape)
+stocks_close = pd.read_csv('stocks.csv')
 
 # fig2 = px.line(stocks_close,x=stocks_close['Date'],y=stocks_close['^MERV'])
 
