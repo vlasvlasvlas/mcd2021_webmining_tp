@@ -12,10 +12,11 @@ from plotly.subplots import make_subplots
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # dataframe con analisis 30 dias
-filecsv = "..//analisis_30dias.csv"
+data_news = "..//analisis_30dias.csv"
+data_stocks = pd.read_csv('..//stocks.csv')
 
 # dataframe
-df = pd.read_csv(os.path.join(ROOT_DIR, filecsv))
+df = pd.read_csv(os.path.join(ROOT_DIR, data_news))
 df = df.sort_values(["fecha", "puntaje"], ascending=[True, True])
 df["fecha"]
 
@@ -75,9 +76,9 @@ df2 = px.data.stocks(indexed=True)-1
 fig2 = px.area(df2, facet_col="company", facet_col_wrap=2)
 """
 
-stocks_close = pd.read_csv('stocks.csv')
 
-# fig2 = px.line(stocks_close,x=stocks_close['Date'],y=stocks_close['^MERV'])
+
+# fig2 = px.line(data_stocks,x=data_stocks['Date'],y=data_stocks['^MERV'])
 
 
 """
@@ -131,8 +132,8 @@ fig1.update_traces(
 
 fig1.add_trace(
     go.Scatter(
-        x=stocks_close["Date"],
-        y=stocks_close["^MERV"],
+        x=data_stocks["Date"],
+        y=data_stocks["^MERV"],
         mode="lines+markers",
         name="df1",
         line=dict(color="dodgerblue", shape="spline", smoothing=1),
