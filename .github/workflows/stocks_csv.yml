@@ -3,7 +3,7 @@ name: scraper-noticias-csv
 
 on:
   schedule:
-    - cron: "55 18 * * *" # runs at 18:00 UTC everyday // 15pm ARG # https://crontab.guru/
+    - cron: "00 21 * * *" # runs at 21:00 UTC everyday // 18:00pm ARG # https://crontab.guru/
 
   # test
   #workflow_dispatch:

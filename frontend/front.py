@@ -142,7 +142,7 @@ fig1.add_trace(
     ),
     secondary_y=True,
 )
-fig1.update_layout(yaxis2=dict(title="Precio MERVAL", side="right"))
+fig1.update_layout(yaxis2=dict(title="Índice MERVAL", side="right"))
 
 fig1.update_layout(
     height=800, paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)"
