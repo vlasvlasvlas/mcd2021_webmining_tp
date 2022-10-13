@@ -13,26 +13,26 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # dataframe con analisis 30 dias
 data_news = "..//analisis_30dias.csv"
-data_stocks = pd.read_csv('..//stocks.csv')
+data_stocks = "..//stocks.csv"
+dfmerval = pd.read_csv(os.path.join(ROOT_DIR, data_stocks))
 
 # dataframe
-df = pd.read_csv(os.path.join(ROOT_DIR, data_news))
-df = df.sort_values(["fecha", "puntaje"], ascending=[True, True])
-df["fecha"]
+dfmedia = pd.read_csv(os.path.join(ROOT_DIR, data_news))
+dfmedia = dfmedia.sort_values(["fecha", "puntaje"], ascending=[True, True])
 
-fechamin = df.fecha.min()
-fechamax = df.fecha.max()
+fechamin = dfmedia.fecha.min()
+fechamax = dfmedia.fecha.max()
 
 fig1 = make_subplots(specs=[[{"secondary_y": True}]])
 fig1.add_trace(
     go.Bar(
-        x=df["fecha"],
-        y=df["puntaje"],
-        # marker_color = df["puntaje"],
+        x=dfmedia["fecha"],
+        y=dfmedia["puntaje"],
+        # marker_color = dfmedia["puntaje"],
         # base = 'rdylgn'
         # color_continuous_scale = 'rdylgn'
-        marker=dict(color=df["puntaje"], colorscale="rdylgn")
-        # color=df['puntaje'],color_continuous_scale=["red", "yellow", "green"]
+        marker=dict(color=dfmedia["puntaje"], colorscale="rdylgn")
+        # color=dfmedia['puntaje'],color_continuous_scale=["red", "yellow", "green"]
     ),
     secondary_y=False,
     row=1,
@@ -49,19 +49,19 @@ fig1.update_layout(
 )
 fig1.update_traces(
     hovertemplate="Fecha: "
-    + df["fecha"]
+    + dfmedia["fecha"]
     + "<br>Fuente: "
-    + df["fuente_nombre"]
+    + dfmedia["fuente_nombre"]
     + "<br>Noticia: "
-    + df["noticia_es"]
+    + dfmedia["noticia_es"]
 )
 
 fig1.add_trace(
     go.Scatter(
-        x=data_stocks["Date"],
-        y=data_stocks["^MERV"],
+        x=dfmerval["Date"],
+        y=dfmerval["^MERV"],
         mode="lines+markers",
-        name="df1",
+        name="dfmedia1",
         line=dict(color="dodgerblue", shape="spline", smoothing=1),
         marker=dict(
             size=10, color="mediumblue", colorscale="mint"
